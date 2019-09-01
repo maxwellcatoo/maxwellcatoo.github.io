@@ -11,11 +11,11 @@
   <meta name="description" content="参考文章阮一峰的（互联网协议入门）。基于“掌握一个知识的最佳督促方式是自己将其复述出来”的原则，将自己对互联网基础协议的理解写出来 互联网协议概述了解互联网协议可以帮助我们更好的理解前端的各个流程和操作背后所代表的的意义，更是我们深入学习前端的基础。对我来说，更是可以帮助我这个前端小白在阅读其他前端文章时理解相关的术语名词所代表的的含义。 互联网 五层模型互联网的分层概念首先从设计的角度来看，提高">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解互联网协议">
-<meta property="og:url" content="http://yoursite.com/2019/09/01/理解互联网协议/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/理解互联网协议/index.html">
 <meta property="og:site_name" content="博客吧">
 <meta property="og:description" content="参考文章阮一峰的（互联网协议入门）。基于“掌握一个知识的最佳督促方式是自己将其复述出来”的原则，将自己对互联网基础协议的理解写出来 互联网协议概述了解互联网协议可以帮助我们更好的理解前端的各个流程和操作背后所代表的的意义，更是我们深入学习前端的基础。对我来说，更是可以帮助我这个前端小白在阅读其他前端文章时理解相关的术语名词所代表的的含义。 互联网 五层模型互联网的分层概念首先从设计的角度来看，提高">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-01T08:40:04.539Z">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-09-01T09:03:45.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解互联网协议">
 <meta name="twitter:description" content="参考文章阮一峰的（互联网协议入门）。基于“掌握一个知识的最佳督促方式是自己将其复述出来”的原则，将自己对互联网基础协议的理解写出来 互联网协议概述了解互联网协议可以帮助我们更好的理解前端的各个流程和操作背后所代表的的意义，更是我们深入学习前端的基础。对我来说，更是可以帮助我这个前端小白在阅读其他前端文章时理解相关的术语名词所代表的的含义。 互联网 五层模型互联网的分层概念首先从设计的角度来看，提高">
@@ -26,10 +26,8 @@
     <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
   <link rel="stylesheet" href="/css/style.css">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 </html>
 <body>
   <div id="container">
@@ -72,8 +70,8 @@
       <div class="outer">
         <section id="main"><article id="post-理解互联网协议" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/09/01/理解互联网协议/" class="article-date">
-  <time datetime="2019-09-01T05:57:12.931Z" itemprop="datePublished">2019-09-01</time>
+    <a href="/2019/09/02/理解互联网协议/" class="article-date">
+  <time datetime="2019-09-01T17:01:37.000Z" itemprop="datePublished">2019-09-01</time>
 </a>
     
   </div>
@@ -100,8 +98,9 @@
 <h3 id="实体层（Physical-Layer）"><a href="#实体层（Physical-Layer）" class="headerlink" title="实体层（Physical Layer）"></a>实体层（Physical Layer）</h3><p>physical 的意思是“物质的、身体的、物理的”意思，实体层的主要作用就是用物理手段把互联网中的电脑连接起来，是电脑与电脑进行信息交流的物理层面上的实现，不管是用光缆、电缆、无线电波还是双绞线实现的连接，都为后续层面上的连接提供了可能。从传输完成的概念上来说，实体层只是完成了0/1信号的传输，当然这也是后续一切传输的基础。</p>
 <h3 id="链接层（Link-Layer）"><a href="#链接层（Link-Layer）" class="headerlink" title="链接层（Link Layer）"></a>链接层（Link Layer）</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>link 是“关联、一环、桥梁、中继线”的意思，实体层的连接为互联网的概念实现提供了无意义的0/1电信号的传输，链接层则是从0/1电信号入手，制定规则，确定电信号的分组方式。</p>
 <h4 id="以太网协议"><a href="#以太网协议" class="headerlink" title="以太网协议"></a>以太网协议</h4><p>早期的分组杂乱不堪，这给互联网的连接带来了很大的阻力，后来一个叫做“以太网”的协议占据了主导地位。<br>以太网规定，一组电信号构成一个数据包，称为以太网数据包，也叫“帧”（Frame),其结构如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+------+---------------+</span><br><span class="line">+ Head +      Data     +</span><br><span class="line">+------+---------------+</span><br></pre></td></tr></table></figure>
-
+<pre class=" language-bash"><code class="language-bash">+------+---------------+
++ Head +      Data     +
++------+---------------+</code></pre>
 <p>其中，Head部分称为标头，长度固定，为18字节，包含数据包的一些说明项（这是所有数据包的标头的作用），在这里主要包含发送者的接受者的MAC地址、数据类型等。</p>
 <h4 id="MAC地址"><a href="#MAC地址" class="headerlink" title="MAC地址"></a>MAC地址</h4><p>每台电脑从生产完成出场之时，只有一个MAC地址，MAC地址长度是48个二进制位，常用12个十六进制数来表示，前六位是厂商编号，后六个是该厂商的网卡流水号，MAC地址是刻在电脑配件中的网卡中的，网卡是电脑连接网络必不可少的设备。对于MAC地址，我们只需要知道这是每台电脑的独一无二的id号就可以了。</p>
 <h4 id="广播"><a href="#广播" class="headerlink" title="广播"></a>广播</h4><p>广播是是电脑与电脑间传输信息的形式，具体是指发出以太网数据包的电脑会将数据包发送给所有的电脑，接受数据的电恼会对比数据包标头中的接受者MAC地址，若不同，则丢掉，相同的话则接受，这就完成了电脑与电脑之间最基础的信息交流，而且，这样的广播被局限在一定的范围之内，避免了电脑接收到海量的以太网数据包，这个范围就是后边会讲到的局域网。</p>
@@ -110,13 +109,15 @@
 <p>目前，广泛采用的是第四版IP协议：IPv4版本，这个版本规定，网络地址由32个二进制位组成：<br>10101100.00010000.11111110.00000001<br>习惯上，我们用分成四段的十进制位来表示：<br>172.16.254.1<br>IP地址的范围从0.0.0.0到255.255.255.255</p>
 <p>每一台入网的计算机，都有自己的IP地址，但是，计算机的IP地址的网络有的是前24位代表子网络，有的是前32位代表子网络，为了明确判断，引入了“子网掩码”的参数，其与计算机的IP地址位数相对应，属于子网的位数，“子网掩码”全部用1来表示，其余全部用0来表示，这样，通过对两个IP地址与“子网掩码”分别进行AND运算，就可以准确找到每台电脑的IP地址。</p>
 <h4 id="IP数据包"><a href="#IP数据包" class="headerlink" title="IP数据包"></a>IP数据包</h4><p>根据IP协议发送的数据，叫做IP数据包，IP数据包也分为标头和和数据两部分，IP数据包标头包含版本、长度、IP地址等信息，整个IP数据包都在以太网数据包的数据部分内，结构如下所示</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+————————————————————+————————————————+————————————————————————+</span><br><span class="line">+ 标头（以太网数据包） + 标头（IP数据包）+           数据          +</span><br><span class="line">+————————————————————+————————————————+————————————————————————+</span><br></pre></td></tr></table></figure>
-
+<pre class=" language-bash"><code class="language-bash">+————————————————————+————————————————+————————————————————————+
++ 标头（以太网数据包） + 标头（IP数据包）+           数据          +
++————————————————————+————————————————+————————————————————————+</code></pre>
 <h4 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h4><p>大多数情况下，我们知道对方的IP地址，却不知道对方的MAC地址，难以完成“广播“传输，所以，我们需要一种从IP地址中得到MAC地址的机制。<br>这里分为两种情况：<br>1 两台主机不在同一个子网络<br>2在<br>第一种情况需要我们将数据包传给子网所在的网关，借用网关将其转换成第二种情况<br>而ARP协议则是适用于从IP地址得到MAC的机制中的第二种情况的一项协议<br>ARP协议具体内容：<br>以广播的形式发出一个包含在以太网数据包中的ARP数据包,其中包含有对方电脑的IP地址，而MAC地址的位置则填上FF:FF:FF:FF:FF:FF,这样子网内所有的电脑都会收到这个包并将自身IP地址与其发送的IP地址对比，相同，则回复自身的MAC地址，不同，则丢弃，由此可完成在同一个子网络之内的电脑之间的交流。</p>
 <h3 id="传输层-Transport-Layer"><a href="#传输层-Transport-Layer" class="headerlink" title="传输层 (Transport Layer)"></a>传输层 (Transport Layer)</h3><h4 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h4><p>之前的三层已经完成了互联网内电脑与电脑之间信息传输，但是，下面三层模型并不能分辨出来这些信息属于电脑上的哪个软件，所以，才有了传输层，传输层设定了“端口”的参数，不同的程序拥有不同的端口参数。”传输层”的功能，就是建立”端口到端口”的通信。相比之下，”网络层”的功能是建立”主机到主机”的通信。只要确定主机和端口，我们就能实现程序之间的交流。</p>
 <h4 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h4><p>遵循UDP协议加入端口信息的数据包称为UDP数据包，其结构如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+——————+——————+——————+——————————+</span><br><span class="line">+ head + head + head +   Data   +</span><br><span class="line">+——————+——————+——————+——————————+</span><br></pre></td></tr></table></figure>
-
+<pre class=" language-bash"><code class="language-bash">+——————+——————+——————+——————————+
++ <span class="token function">head</span> + <span class="token function">head</span> + <span class="token function">head</span> +   Data   +
++——————+——————+——————+——————————+</code></pre>
 <p>三个head分别是以太网数据包的标头、IP数据包的标头和UDP数据包的标头</p>
 <h4 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h4><p>UDP协议的优点是比较简单，容易实现，但是缺点是可靠性较差，一旦数据包发出，无法知道对方是否收到。TCP协议应运而生，TCP协议每发一个数据包都会确认，假如在传输过程中，有哪怕一个数据包丢失，发出方也能知道数据传输失败，从而重新进行发送。（但是TCP也因此变得十分复杂，实现困难，且消耗较多的资源）</p>
 <h3 id="应用层（Application-Layer）"><a href="#应用层（Application-Layer）" class="headerlink" title="应用层（Application Layer）"></a>应用层（Application Layer）</h3><p>应用层的作用，在于规定应用程序的数据格式，其数据就放在TCP数据包的数据部分。</p>
@@ -125,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/01/理解互联网协议/" data-id="ck00qf8yw0002q8w3tg48cr2f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/02/理解互联网协议/" data-id="ck00tbz7h000238w3cywxp0q7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,7 +175,7 @@
       <ul>
         
           <li>
-            <a href="/2019/09/01/理解互联网协议/">理解互联网协议</a>
+            <a href="/2019/09/02/理解互联网协议/">理解互联网协议</a>
           </li>
         
           <li>
@@ -201,28 +202,30 @@
 </footer>
 <script language=javascript> 
     function siteTime() { 
-    window.setTimeout("siteTime()", 1000); 
-    var seconds = 1000; 
-    var minutes = seconds * 60; 
-    var hours = minutes * 60; 
-    var days = hours * 24; 
-    var years = days * 365; 
-    var today = new Date(); 
-    var todayYear = today.getFullYear(); 
-    var todayMonth = today.getMonth() + 1; 
-    var todayDate = today.getDate(); 
-    var todayHour = today.getHours(); 
-    var todayMinute = today.getMinutes(); 
-    var todaySecond = today.getSeconds(); /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳) year - 作为date对象的年份，为4位年份值 month - 0-11之间的整数，做为date对象的月份 day - 1-31之间的整数，做为date对象的天数 hours - 0(午夜24点)-23之间的整数，做为date对象的小时数 minutes - 0-59之间的整数，做为date对象的分钟数 seconds - 0-59之间的整数，做为date对象的秒数 microseconds - 0-999之间的整数，做为date对象的毫秒数 */ 
-    var t1 = Date.UTC(2019, 08, 30, 23, 00, 00); //北京时间2019-8-30 23:00:00 
-    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
-    var diff = t2 - t1; 
-    var diffYears = Math.floor(diff / years); 
-    var diffDays = Math.floor((diff / days) - diffYears * 365); var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
-    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
-    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
-    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/ 
-    siteTime(); 
+        window.setTimeout("siteTime()", 1000); 
+        var seconds = 1000; 
+        var minutes = seconds * 60; 
+        var hours = minutes * 60; 
+        var days = hours * 24; 
+        var years = days * 365; 
+        var today = new Date(); 
+        var todayYear = today.getFullYear(); 
+        var todayMonth = today.getMonth() + 1; 
+        var todayDate = today.getDate(); 
+        var todayHour = today.getHours(); 
+        var todayMinute = today.getMinutes(); 
+        var todaySecond = today.getSeconds(); /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳) year - 作为date对象的年份，为4位年份值 month - 0-11之间的整数，做为date对象的月份 day - 1-31之间的整数，做为date对象的天数 hours - 0(午夜24点)-23之间的整数，做为date对象的小时数 minutes - 0-59之间的整数，做为date对象的分钟数 seconds - 0-59之间的整数，做为date对象的秒数 microseconds - 0-999之间的整数，做为date对象的毫秒数 */ 
+        var t1 = Date.UTC(2019, 08, 29, 23, 00, 00); //北京时间2019-8-30 23:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; 
+        var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears  *   365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *     minutes) / seconds); 
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+      }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/ 
+      siteTime(); 
 </script>
     </div>
     <nav id="mobile-nav">
